@@ -290,6 +290,7 @@ button {
 .header_section {
     width: 100%;
     display: flex;
+    position : fixed ;
 }
 
 .containt_main {
