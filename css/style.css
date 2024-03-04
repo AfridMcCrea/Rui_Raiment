@@ -295,7 +295,7 @@ button {
     display: flex;
     position: fixed;
     top: 20px;
-    padding: 10px;
+    padding: 0px;
     background-color: #f0f0f0;
     z-index: 1000;
     margin-bottom: 20px;
@@ -304,21 +304,21 @@ button {
 /* Main Content */
 .containt_main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin-top: 80px;
-    padding: 20px;
+    margin-top: 50px;
+    padding: 0px;
 }
 
 /* Responsive Styles */
 @media only screen and (max-width: 600px) {
     /* Adjust styles for screens with a maximum width of 600 pixels */
     .header_section {
-        padding: 5px;
+        padding: 0px;
     }
 
     .containt_main {
-        margin-top: 50px;
+        margin-top: 0px;
     }
 }
 
