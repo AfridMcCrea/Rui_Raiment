@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form</title>
+  <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link to your CSS file -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      margin-bottom: 8px;
+    }
+
+    input[type="file"],
+    input[type="text"],
+    input[type="button"] {
+      width: 100%;
+      padding: 8px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 16px; /* Added margin for spacing */
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+  
+</head>
+<body>
+
+  <form id="orderForm" enctype="multipart/form-data">
+    <div class="logo">
+      <img src="/Users/afridahmed/Desktop/html/images/logo.png" alt="Your Logo">
+    </div>
+    <div class="logo">
+      <img src="/Users/afridahmed/Desktop/html/images/IMG_0134.jpg" alt="Your Logo">
+    </div>
+    <div class="form-group">
+      <label for="imageInput">Upload payment image:</label>
+      <input type="file" id="imageInput" name="image" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label for="nameInput">Name:</label>
+      <input type="text" id="nameInput" name="name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="deptInput">Department:</label>
+      <input type="text" id="deptInput" name="department" required>
+    </div>
+
+    <div class="form-group">
+      <label for="rollInput">Roll Number:</label>
+      <input type="text" id="rollInput" name="rollNumber" required>
+    </div>
+
+    <div class="form-group">
+      <p>Select size:</p>
+      <input type="button" value="S" onclick="setSize('S')">
+      <input type="button" value="M" onclick="setSize('M')">
+      <input type="button" value="L" onclick="setSize('L')">
+      <input type="button" value="XL" onclick="setSize('XL')">
+    </div>
+
+    <button type="button" onclick="submitOrder()">Submit Order</button>
+  </form>
+
+  <script>
+    let selectedSize = '';
+
+    function setSize(size) {
+      selectedSize = size;
+      console.log(`Selected size: ${selectedSize}`);
+    }
+
+    function submitOrder() {
+      if (!selectedSize) {
+        console.error('Please select a size before submitting the order.');
+        return;
+      }
+
+      const form = document.getElementById('orderForm');
+      const formData = new FormData(form);
+      formData.append('size', selectedSize);
+
+      fetch('/submit-order-endpoint', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  </script>
+
+</body>
+</html>
+
