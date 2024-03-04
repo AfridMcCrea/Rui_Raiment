@@ -288,15 +288,16 @@ button {
 
 
 /* Header Section */
+/* Header Section */
 .header_section {
     width: 100%;
     display: flex;
     position: fixed;
-    top: 0;
+    top: 20px; /* Adjust the top value to increase the space from the top */
     padding: 10px;
     background-color: #f0f0f0;
     z-index: 1000;
-    margin-bottom: 20px; /* Adjust the margin-bottom to add space between header and content */
+    margin-bottom: 20px;
 }
 
 /* Main Content */
@@ -304,10 +305,9 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 80px; /* Adjust the margin-top to maintain space between header and content */
     padding: 20px;
 }
-
 
 
 /* opennav bar start */
