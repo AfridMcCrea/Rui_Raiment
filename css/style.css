@@ -292,6 +292,7 @@ button {
     display: flex;
     position : fixed ;
     top : 100 ;
+    padding : 100 ;
 }
 
 .containt_main {
